@@ -24,7 +24,7 @@ It was fully developed in Haskell and consisted of 6 tasks:
 ## Game gallery
 
 <img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/mainpage.jpg"/>
-<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/assets/skins.jpg"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/skins.jpg"/>
 <img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/help.jpg"/>
 <img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/game.png"/>
 
@@ -103,4 +103,4 @@ $ haddock -h -o doc/html src/*.hs
 ## Grupo 16
 
 - Daniel Silva;
-- [Hélder Gomes;](https://github.com/helderrrg)
+- [Hélder Gomes](https://github.com/helderrrg)
