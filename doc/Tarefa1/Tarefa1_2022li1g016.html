@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Tarefa1_2022li1g016</title><link href="linuwial.css" rel="stylesheet" type="text/css" title="Linuwial" /><link rel="stylesheet" type="text/css" href="quick-jump.css" /><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" /><script src="haddock-bundle.min.js" async="async" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { processClass: "mathjax", ignoreClass: ".*" } });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script></head><body><div id="package-header"><span class="caption empty">&nbsp;</span><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul></div><div id="content"><div id="module-header"><table class="info"><tr><th valign="top">Copyright</th><td>Daniel Silva &lt;a104086@alunos.uminho.pt&gt;<br />H&#233;lder Gomes &lt;a104100@alunos.uminho.pt&gt;</td></tr><tr><th>Safe Haskell</th><td>Safe-Inferred</td></tr></table><p class="caption">Tarefa1_2022li1g016</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>M&#243;dulo para a realiza&#231;&#227;o da Tarefa 1 do projeto de LI1 em 2022/23.</p></div></div><div id="synopsis"><details id="syn"><summary>Synopsis</summary><ul class="details-toggle" data-details-id="syn"><li class="src short"><a href="#v:mapaValido">mapaValido</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:mapaValidoAux">mapaValidoAux</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validoLinha">validoLinha</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validoRioContrario">validoRioContrario</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validoRioContrarioAux">validoRioContrarioAux</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool</li><li class="src short"><a href="#v:validoTroncoMax">validoTroncoMax</a> :: [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; Bool</li><li class="src short"><a href="#v:validoCarroMax">validoCarroMax</a> :: [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; Bool</li><li class="src short"><a href="#v:validoUmObstaculo">validoUmObstaculo</a> :: (<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]) -&gt; Bool</li><li class="src short"><a href="#v:validoLarguraLinha">validoLarguraLinha</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validoRioContiguos">validoRioContiguos</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool</li><li class="src short"><a href="#v:validoEstradaContiguos">validoEstradaContiguos</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool</li><li class="src short"><a href="#v:validoRelvaContiguos">validoRelvaContiguos</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool</li></ul></details></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a id="v:mapaValido" class="def">mapaValido</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:mapaValido" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que verifica se o mapa &#233; v&#225;lido.
+A fun&#231;&#227;o recebe um elemento Mapa e retorna um elemento Bool.
+Caso a fun&#231;&#227;o receba um mapa vazio mapaValido (Mapa _ []), ela retornar&#225; o valor False, que significa que o mapa &#233; inv&#225;lido.
+O mapa s&#243; &#233; v&#225;lido, caso a fun&#231;&#227;o receba tr&#234;s fun&#231;&#245;es v&#225;lidas.
+Estas fun&#231;&#245;es s&#227;o validoLarguraLinha, validoLinha e mapaValidoAux, e s&#227;o definidas abaixo.</p><pre>mapaValido :: Mapa -&gt; Bool
+mapaValido (Mapa _ []) = False
+mapaValido mapa@(Mapa largura ((terreno, obstaculos):t)) = (validoLarguraLinha mapa) &amp;&amp; (validoLinha mapa) &amp;&amp; (mapaValidoAux mapa)
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>mapaValido (Mapa 5 []) = False
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>mapaValido (Mapa 2 [(Relva, [Arvore, Nenhum])]) = True
+</code></strong></pre></div></div><div class="top"><p class="src"><a id="v:mapaValidoAux" class="def">mapaValidoAux</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:mapaValidoAux" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o auxiliar &#224; fun&#231;&#227;o mapaValido.  
+Esta fun&#231;&#227;o recebe um elemento Mapa e retorna um elemento Bool.
+A fun&#231;&#227;o verifica recursivamente se cada linha do Mapa &#233; v&#225;lida, para isso utiliza v&#225;rias fun&#231;&#245;es auxiliares, que s&#227;o defenidas abaixo.</p><pre>mapaValidoAux :: Mapa -&gt; Bool
+mapaValidoAux (Mapa _ []) = True
+mapaValidoAux relva<code>(Mapa largura ((Relva, obstaculos):t)) = if (validoUmObstaculo (Relva, obstaculos)) &amp;&amp; (validoRelvaContiguos relva 0) then mapaValidoAux (Mapa largura t) else False
+mapaValidoAux estrada</code>(Mapa largura ((Estrada v, obstaculos):t)) =if (validoCarroMax obstaculos) &amp;&amp; (validoUmObstaculo (Estrada v, obstaculos)) &amp;&amp; (validoEstradaContiguos estrada 0) then mapaValidoAux (Mapa largura t) else False
+mapaValidoAux rio@(Mapa largura ((Rio v, obstaculos):t)) = if (validoRioContrario rio) &amp;&amp; (validoTroncoMax obstaculos) &amp;&amp; (validoUmObstaculo (Rio v, obstaculos)) &amp;&amp; (validoRioContiguos rio 0) then mapaValidoAux (Mapa largura t) else False
+</pre></div></div><div class="top"><p class="src"><a id="v:validoLinha" class="def">validoLinha</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:validoLinha" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que verifica se uma linha &#233; v&#225;lida.  
+A fun&#231;&#227;o recebe um elemento Mapa e retorna um elemento Bool.
+A fun&#231;&#227;o testa atrav&#233;s de pattern matching, se existe algum obst&#225;culo incorreto dentro de cada terreno.</p><pre>validoLinha :: Mapa -&gt; Bool
+validoLinha (Mapa largura ((Relva, obstaculos):t)) = not (elem Carro obstaculos || elem Tronco obstaculos)
+validoLinha (Mapa largura ((Rio v, obstaculos):t)) = not (elem Carro obstaculos || elem Arvore obstaculos)
+validoLinha (Mapa largura ((Estrada v, obstaculos):t)) = not (elem Tronco obstaculos || elem Arvore obstaculos)
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoLinha (Mapa 3 [(Relva, [Carro, Nenhum, Tronco])]) = False
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoLinha (Mapa 3 [(Relva, [Arvore,Nenhum, Arvore])]) = True
+</code></strong></pre></div></div><div class="top"><p class="src"><a id="v:validoRioContrario" class="def">validoRioContrario</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:validoRioContrario" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que verifica se um RioContr&#225;rio &#233; v&#225;lido.  
+A fun&#231;&#227;o recebe um elemento Mapa e retorna um elemento Bool.
+Caso a fun&#231;&#227;o receba um rio com velocidade 0, independentemente do valor da velocidade, ela retornar&#225; o valor False, que significa que o mapa &#233; inv&#225;lido.  
+O rio s&#243; &#233; v&#225;lido, caso a fun&#231;&#227;o receba um rio com velocidade v e obst&#225;culos. Al&#233;m disso, para que a fun&#231;&#227;o validoRioContr&#225;rio
+retorne True, o elemento dado Mapa ter&#225; que passar pela fun&#231;&#227;o validoRioContrarioAux (definida em baixo) e esta ter&#225; que retornar True.  </p><pre>validoRioContrario :: Mapa -&gt; Bool
+validoRioContrario (Mapa largura ((Rio 0, _):t)) = False
+validoRioContrario (Mapa largura ((Rio v, obstaculos):t)) = validoRioContrarioAux (Mapa largura ((Rio v, obstaculos):t)) 0
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoRioContrario (Mapa 2 [(Rio 2, [Nenhum, Tronco]), (Rio 1, [Tronco, Nenhum])]) = False
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoRioContrario (Mapa 2 [(Rio 2, [Nenhum, Tronco]), (Rio (-1), [Tronco, Nenhum])]) = True
+</code></strong></pre></div></div><div class="top"><p class="src"><a id="v:validoRioContrarioAux" class="def">validoRioContrarioAux</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool <a href="#v:validoRioContrarioAux" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o auxiliar &#224; fun&#231;&#227;o validoRioContrario.
+A fun&#231;&#227;o recebe um elemento Mapa, um Inteiro e retorna um Bool. 
+Recursivamente a fun&#231;ao guarda o valor anterior da velocidade e compara-o com a velocidade seguinte, caso sejam de sinal contr&#225;rio, a fun&#231;&#227;o continua at&#233; esvaziar a lista e retornar True, caso n&#227;o aconte&#231;a retorna False.
+Cada vez que a fun&#231;&#227;o encontra um terreno que n&#227;o seja Rio, torna o acumulador (a), 0, permitindo entrar na 1&#170; guarda, recome&#231;ando a verifica&#231;&#227;o das velocidades.</p><pre>validoRioContrarioAux :: Mapa -&gt; Int -&gt; Bool
+validoRioContrarioAux (Mapa largura []) _ = True
+validoRioContrarioAux (Mapa largura ((Rio v, _):t)) a  | a == 0 = validoRioContrarioAux (Mapa largura t) v
+                                                       | a <a href="0">= if v</a> 0 then validoRioContrarioAux (Mapa largura t) v else False
+                                                       | a &gt; 0 = if v &lt; 0 then validoRioContrarioAux (Mapa largura t) v else False
+validoRioContrarioAux (Mapa largura ((_, _):t)) a = validoRioContrarioAux (Mapa largura t) 0
+</pre></div></div><div class="top"><p class="src"><a id="v:validoTroncoMax" class="def">validoTroncoMax</a> :: [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; Bool <a href="#v:validoTroncoMax" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que valida a dimens&#227;o m&#225;xima de um Tronco.  
+A fun&#231;&#227;o recebe uma lista de obst&#225;culos e pela fun&#231;&#227;o &quot;group&quot;, une os elementos seguidos em listas, em seguida, a fun&#231;&#227;o auxiliar, caso o primeiro e ultimo elemento da lista sejam Troncos concatena-os.
+Por &#250;ltimo, a fun&#231;&#227;o auxilar 2, compara, recursivamente, o tamanho das listas, que cont&#234;m Troncos, caso alguma seja maior que 5, a fun&#231;&#227;o retorna Falso, sen&#227;o True.</p><pre>validoTroncoMax :: [Obstaculo] -&gt; Bool
+validoTroncoMax obstaculos = if (elem Tronco (head obst)) &amp;&amp; (elem Tronco (last obst))
+                             then validoTroncoMaxAux ((head obst) ++ (last obst)) (tail obst)
+                             else validoTroncoMaxAux2 obst
+    where obst = (group obstaculos)
+
+validoTroncoMaxAux :: [Obstaculo] -&gt; [[Obstaculo]] -&gt; Bool
+validoTroncoMaxAux obst resto = if (length obst) &lt; 6 then validoTroncoMaxAux2 resto else False 
+
+validoTroncoMaxAux2 :: [[Obstaculo]] -&gt; Bool
+validoTroncoMaxAux2 [] = True
+validoTroncoMaxAux2 (h:t) = if (elem Tronco h)
+                              then (length h) &lt; 6 &amp;&amp; (validoTroncoMaxAux2 t)
+                              else validoTroncoMaxAux2 t
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoTroncoMax (Mapa  [(Rio 7, [Tronco, Tronco, Nenhum, Tronco, Tronco, Tronco, Tronco]) = False
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoTroncoMax (Mapa  [(Rio 7, [Tronco, Tronco, Nenhum, Tronco, Tronco, Nenhum, Tronco]) = True
+</code></strong></pre></div></div><div class="top"><p class="src"><a id="v:validoCarroMax" class="def">validoCarroMax</a> :: [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>] -&gt; Bool <a href="#v:validoCarroMax" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que valida a dimens&#227;o m&#225;xima de um Carro.  
+A fun&#231;&#227;o recebe uma lista de obst&#225;culos e pela fun&#231;&#227;o &quot;group&quot;, une os elementos seguidos em listas, em seguida, a fun&#231;&#227;o auxiliar, caso o primeiro e ultimo elemento da lista sejam Carro concatena-os.
+Por &#250;ltimo, a fun&#231;&#227;o auxilar 2, compara, recursivamente, o tamanho das listas, que cont&#234;m Carro, caso alguma seja maior que 3, a fun&#231;&#227;o retorna Falso, sen&#227;o True.</p><pre>validoCarroMax :: [Obstaculo] -&gt; Bool
+validoCarroMax obstaculos = if (elem Carro (head obst)) &amp;&amp; (elem Carro (last obst))
+                            then validoCarroMaxAux ((head obst) ++ (last obst)) (tail obst)
+                            else validoCarroMaxAux2 obst
+    where obst = (group obstaculos)
+
+validoCarroMaxAux :: [Obstaculo] -&gt; [[Obstaculo]] -&gt; Bool
+validoCarroMaxAux obst resto = if (length obst) &lt; 4 then validoCarroMaxAux2 resto else False 
+
+validoCarroMaxAux2 :: [[Obstaculo]] -&gt; Bool
+validoCarroMaxAux2 [] = True
+validoCarroMaxAux2 (h:t) = if (elem Carro h)
+                             then (length h) &lt; 4 &amp;&amp; (validoCarroMaxAux2 t)
+                             else validoCarroMaxAux2 t
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoTroncoMax (Mapa  [(Rio 5, [Carro, Nenhum, Carro, Carro, Carro]) = False
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoTroncoMax (Mapa  [(Rio 5, [Carro, Nenhum, Nenhum, Carro, Carro]) = True
+</code></strong></pre></div></div><div class="top"><p class="src"><a id="v:validoUmObstaculo" class="def">validoUmObstaculo</a> :: (<a href="LI12223.html#t:Terreno" title="LI12223">Terreno</a>, [<a href="LI12223.html#t:Obstaculo" title="LI12223">Obstaculo</a>]) -&gt; Bool <a href="#v:validoUmObstaculo" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que valida um obst&#225;culo.    
+A fun&#231;&#227;o recebe um tuplo de terreno e lisa de obst&#225;culos e retorna um Bool.
+A fun&#231;&#227;o verifica se numa determinada linha, existe, pelo menos, um <a href="Nenhum.html">Nenhum</a>.</p><pre>validoUmObstaculo :: (Terreno, [Obstaculo]) -&gt; Bool
+validoUmObstaculo (terreno, obstaculos) = elem Nenhum obstaculos
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoLinha (Mapa 3 [(Rio 2, [Tronco, Tronco, Tronco])]) = False
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoLinha (Mapa 3 [(Relva, [Arvore, Nenhum, Arvore])]) = True
+</code></strong></pre></div></div><div class="top"><p class="src"><a id="v:validoLarguraLinha" class="def">validoLarguraLinha</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:validoLarguraLinha" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que valida a largura de uma linha.      
+A fun&#231;&#227;o, recursivamente, compara a largura do mapa com a length da lista obst&#225;culos, se forem sempre iguais retorna True, sen&#227;o False.</p><pre>validoLarguraLinha :: Mapa -&gt; Bool
+validoLarguraLinha (Mapa largura []) = True
+validoLarguraLinha (Mapa largura ((_, obstaculos):t)) | largura == (length obstaculos) = validoLarguraLinha (Mapa largura t)
+                                                      | otherwise = False
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoLinha (Mapa 2 [(Rio 2, [Tronco, Tronco, Tronco])]) = False
+</code></strong><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validoLinha (Mapa 3 [(Relva, [Arvore, Nenhum, Arvore])]) = True
+</code></strong></pre></div></div><div class="top"><p class="src"><a id="v:validoRioContiguos" class="def">validoRioContiguos</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool <a href="#v:validoRioContiguos" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que valida a contiguidade dos rios.
+A fun&#231;&#227;o, recursivamente, identifica se a linha &#233; um Rio, caso seja soma 1 ao acumulador, se chegar a 5, retorna False, sen&#227;o True.
+Cada vez que a fun&#231;&#227;o encontre algum terreno diferente de Rio, torna o acumulador 0, recome&#231;ando a contagem de rios. </p><pre>validoRioContiguos :: Mapa -&gt; Int -&gt; Bool
+validoRioContiguos (Mapa _ _) 5 = False
+validoRioContiguos (Mapa _ []) _ = True
+validoRioContiguos (Mapa largura ((Rio _, _):t)) a = validoRioContiguos (Mapa largura t) (a+1)
+validoRioContiguos (Mapa largura ((_, _):t)) a = validoRioContiguos (Mapa largura t) 0
+</pre></div></div><div class="top"><p class="src"><a id="v:validoEstradaContiguos" class="def">validoEstradaContiguos</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool <a href="#v:validoEstradaContiguos" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que valida a contiguidade das estradas.
+A fun&#231;&#227;o, recursivamente, identifica se a linha &#233; uma Estrada, caso seja soma 1 ao acumulador, se chegar a 5, retorna False, sen&#227;o True.
+Cada vez que a fun&#231;&#227;o encontre algum terreno diferente de Estrada, torna o acumulador 0, recome&#231;ando a contagem de estradas. </p><pre>validoEstradaContiguos :: Mapa -&gt; Int -&gt; Bool
+validoEstradaContiguos (Mapa _ _) 6 = False
+validoEstradaContiguos (Mapa _ []) _ = True
+validoEstradaContiguos (Mapa largura ((Estrada _, _):t)) a = validoEstradaContiguos (Mapa largura t) (a+1)
+validoEstradaContiguos (Mapa largura ((_, _):t)) a = validoEstradaContiguos (Mapa largura t) 0
+</pre></div></div><div class="top"><p class="src"><a id="v:validoRelvaContiguos" class="def">validoRelvaContiguos</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Int -&gt; Bool <a href="#v:validoRelvaContiguos" class="selflink">#</a></p><div class="doc"><p>Fun&#231;&#227;o que valida a contiguidade de relvas.
+A fun&#231;&#227;o, recursivamente, identifica se a linha &#233; uma Relva, caso seja soma 1 ao acumulador, se chegar a 6, retorna False, sen&#227;o True.
+Cada vez que a fun&#231;&#227;o encontre algum terreno diferente de Relva, torna o acumulador 0, recome&#231;ando a contagem de relvas. </p><pre>validoRelvaContiguos :: Mapa -&gt; Int -&gt; Bool
+validoRelvaContiguos (Mapa _ _) 6 = False
+validoRelvaContiguos (Mapa _ []) _ = True
+validoRelvaContiguos (Mapa largura ((Relva, _):t)) a = validoRelvaContiguos (Mapa largura t) (a+1)
+validoRelvaContiguos (Mapa largura ((_, _):t)) a = validoRelvaContiguos (Mapa largura t) 0
+</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.26.0</p></div></body></html>
