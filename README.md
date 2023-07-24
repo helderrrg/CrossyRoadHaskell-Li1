@@ -23,10 +23,10 @@ It was fully developed in Haskell and consisted of 6 tasks:
 
 ## Game gallery
 
-<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/mainpage.jpg"/>
-<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/skins.jpg"/>
-<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/help.jpg"/>
-<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/game.png"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/mainpage.jpg"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/skins.jpg"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/help.jpg"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/game.png"/>
 
 ## Installing and running the game
 
