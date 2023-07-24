@@ -1,77 +1,100 @@
-# Laboratórios de Informática I
+# Crossy Road Haskell
 
-## Repositório
+## Software Labs I | Laboratórios de Informática I
+## Grade: 17/20 :star:
 
-Se tiver chave SSH configurada no GitLab pode fazer clone com o seguinte link:
+This game was developed during the first semester of the Software Engineering degree @ University of Minho.
+
+The project involved reimagining the classic game Crossy Road, while also having the creative freedom to introduce new elements and completely overhaul the visual design.
+
+It was fully developed in Haskell and consisted of 6 tasks:
+
+1. Verify if a given map is valid;
+
+2. Continuous generation of the map;
+
+3. Character movement and obstacles;
+
+4. Check if the game;
+
+5. Map scrolling;
+
+6. Create and implement game graphics, using Gloss.
+
+## Game gallery
+
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/mainpage.jpg"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/assets/skins.jpg"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/help.jpg"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/game.png"/>
+
+## Installing and running the game
+
+**If you use any arch-based distro, head to the next section.**
+Firstly, install Haskell Platform (GHC and Cabal).
+To do so, follow the instructions for your specific system at: [haskell.org/downloads](https://www.haskell.org/downloads/)
+
+Finally, since the graphical interface of the game was developed using the [Gloss](https://hackage.haskell.org/package/gloss) library, you'll need to install it:
 
 ```bash
-$ git clone git@gitlab.com:uminho-di/li1/2223/2022li1g016.git
-$ cd 2022li1g016
+$ cabal update
+$ cabal install --lib gloss
+$ cabal install --lib gloss-juicy
 ```
 
-Alternativamente, pode fazer clone por https com o seguinte link:
+Since I used some more external libraries, you'll need to install them too:
 
 ```bash
-$ git clone https://gitlab.com/uminho-di/li1/2223/projetos/2022li1g016.git
-$ cd 2022li1g016
+$ cabal install --lib strict-io
 ```
 
-## Interpretador
+#### Cloning the repository
 
-Pode abrir o interpretador do Haskell (GHCi) utilizando o cabal ou diretamente.
+```bash
+$ git clone git@github.com:helderrrg/Projeto-LI1.git
+```
 
-1. Usando o cabal
+
+#### Compiling
+
+```bash
+$ cd Projeto-LI1/src
+$ ghc Main.hs
+```
+
+#### Running
+
+```bash
+$ cd ..
+$ ./src/Main
+```
+## Interpreter
+
+You can open the interpreter Haskell (GHCi) using the cabal or directly.
+
+1. Using `cabal`
 
 ```bash
 $ cabal repl
 ```
 
-2. Usando o GHCi
+2. Using `GHCi`
 
 ```bash
 $ ghci -i="src" -i="tests" src/Main.hs
 ```
 
-## Testes
+## Documentation
 
-O projecto utiliza a biblioteca [HUnit](https://hackage.haskell.org/package/HUnit) para fazer testes unitários.
+You can generate documentation with the [Haddock](https://haskell-haddock.readthedocs.io/).
 
-Pode correr os testes utilizando uma das seguintes alternativas:
-
-1. Usando o `cabal`
-
-```bash
-$ cabal test
-```
-
-2. Usando o GHCi
-
-```bash
-$ ghci -i="src" -i="tests" tests/Spec.hs
->>> runTestsT1 -- Correr os testes tarefa 1
->>> runTestsT2 -- Correr os testes tarefa 2
->>> runTestsT3 -- Correr os testes tarefa 3
->>> runTestsT4 -- Correr os testes tarefa 4
->>> main -- Correr todos os testes
-```
-
-3. Usando o wrapper `runhaskell`
-
-```bash
-$ runhaskell -i="src" -i="tests" tests/Spec.hs
-```
-
-## Documentação
-
-Pode gerar a documentação com o [Haddock](https://haskell-haddock.readthedocs.io/).
-
-1. Usando o `cabal`
+1. Using `cabal`
 
 ```bash
 $ cabal haddock --haddock-all
 ```
 
-2. Usando diretamente o `haddock`
+2. Using directly `haddock`
 
 ```bash
 $ haddock -h -o doc/html src/*.hs
@@ -79,5 +102,5 @@ $ haddock -h -o doc/html src/*.hs
 
 ## Grupo 16
 
-- **A104086** Daniel Silva;
-- **A104100** Hélder Gomes;
+- Daniel Silva;
+- [Hélder Gomes;](https://github.com/helderrrg)
