@@ -26,7 +26,7 @@ It was fully developed in Haskell and consisted of 6 tasks:
 <img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/mainpage.jpg"/>
 <img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/skins.jpg"/>
 <img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/help.jpg"/>
-<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/game.png"/>
+<img align = "center" width = 900px src = "https://github.com/helderrrg/Projeto-LI1/blob/main/assets/githubimages/game.jpg"/>
 
 ## Installing and running the game
 
