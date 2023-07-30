@@ -51,14 +51,14 @@ $ cabal install --lib strict-io
 #### Cloning the repository
 
 ```bash
-$ git clone git@github.com:helderrrg/Projeto-LI1.git
+$ git clone git@github.com:helderrrg/CrossyRoadHaskell-Li1.git
 ```
 
 
 #### Compiling
 
 ```bash
-$ cd Projeto-LI1/src
+$ cd CrossyRoadHaskell-Li1/src
 $ ghc Main.hs
 ```
 
